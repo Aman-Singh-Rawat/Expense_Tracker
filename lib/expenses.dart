@@ -28,9 +28,25 @@ class _ExpensesState extends State<Expenses> {
     )
   ];
 
+  void _openAddExpenseOverlay() {
+    showBottomSheet(
+      context: context,
+      builder: (ctx) => Text("Bottom sheet"),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Expense Tracker"),
+        actions: [
+          IconButton(
+            onPressed: _openAddExpenseOverlay,
+            icon: const Icon(Icons.add),
+          )
+        ],
+      ),
       body: Column(
         children: [
           const Text("The Chart"),
